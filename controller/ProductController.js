@@ -16,7 +16,7 @@ exports.set =async(req,res)=>{
 exports.get = async (req, res) => {
     try {
         const products = await Product.find();
-        res.json(products);
+        res.send("succes");
     } catch (error) {
         res.status(500).json({ message: 'Server error' });
     }
