@@ -41,7 +41,8 @@ app.use(express.json())
 app.get('/get',async (req, res) => {
     try {
         const products = await Product.find();
-        res.send(products);
+        console.log("products",products)
+      return res.send(products);
         // res.send("Hello")
     } catch (error) {
         res.status(500).json({ message: 'Server error' });
