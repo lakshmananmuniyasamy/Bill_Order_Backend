@@ -26,7 +26,7 @@ app.get('/demo',(req,res)=>{
 
 app.use(cors(
     {
-        origin: ["https://deploy-mern-frontend.vercel.app"],
+        origin: ["*"],
         methods: ["POST", "GET"],
         credentials: true
     }
