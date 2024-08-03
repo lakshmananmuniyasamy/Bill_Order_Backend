@@ -22,7 +22,7 @@ app.get('/demo',(req,res)=>{
  return  res.send("welcome to my project")
 })
 
-app.use(cors({ origin: "https://deploy-mern-",methods: ["POST", "GET"],credentials: true }));
+app.use(cors({ origin: "*",methods: ["POST", "GET"],credentials: true }));
 
 app.use(express.json());
 
