@@ -17,7 +17,7 @@ app.listen(PORT, (e) => {
     )
 });
 
-app.get('/demo', (req, res) => {
+app.get('/', (req, res) => {
     return res.send("welcome to my project")
 })
 
