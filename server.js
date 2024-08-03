@@ -3,7 +3,6 @@ const cors = require('cors')
 const mongoose = require('mongoose');
 require('dotenv').config();
 const ProductRoute = require('./router/ProductRoute');
-const Product = require('./model/Product');
 
 const PORT = process.env.port;
 
@@ -22,11 +21,8 @@ app.get('/demo',(req,res)=>{
  return  res.send("welcome to my project")
 })
 
-app.use('/test',(req,res)=>{
-    return  res.send("welcome to my test ")
-})
+app.use('/api/products',ProductRoute)
 
-// app.use(cors({ origin: "*",methods: ["POST", "GET"],credentials: true }));
 
 app.use(cors(
     {
@@ -38,16 +34,16 @@ app.use(cors(
 app.use(express.json())
 
 
-app.get('/get',async (req, res) => {
-    try {
-        const products = await Product.find();
-        console.log("products",products)
-      return res.send(products);
-        // res.send("Hello")
-    } catch (error) {
-        res.status(500).json({ message: 'Server error' });
-    }
-})
+// app.get('/get',async (req, res) => {
+//     try {
+//         const products = await Product.find();
+//         console.log("products",products)
+//       return res.send(products);
+//         // res.send("Hello")
+//     } catch (error) {
+//         res.status(500).json({ message: 'Server error' });
+//     }
+// })
 
 
 
