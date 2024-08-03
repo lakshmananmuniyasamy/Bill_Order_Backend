@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors')
 const mongoose = require('mongoose');
 require('dotenv').config();
-const ProductRoute = require('./router/ProductRoute')
+const ProductRoute = require('./router/ProductRoute');
+const Product = require('./model/Product');
 
 const PORT = process.env.port;
 
@@ -25,6 +26,14 @@ app.use(cors({ origin: "https://deploy-mern-",methods: ["POST", "GET"],credentia
 
 app.use(express.json());
 
+app.get('/get',async (req, res) => {
+    try {
+        const products = await Product.find();
+        res.json(products);
+    } catch (error) {
+        res.status(500).json({ message: 'Server error' });
+    }
+})
 
 
 
