@@ -17,6 +17,10 @@ app.listen(PORT, (e) => {
     )
 });
 
+app.use('/',(req,res)=>{
+   res.send("welcome to my project")
+})
+
 app.use(cors({ origin: "*" }));
 
 app.use(express.json());
