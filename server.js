@@ -22,6 +22,10 @@ app.get('/demo',(req,res)=>{
  return  res.send("welcome to my project")
 })
 
+app.use('/test',(req,res)=>{
+      res.send("welcome to my project")
+})
+
 // app.use(cors({ origin: "*",methods: ["POST", "GET"],credentials: true }));
 
 app.use(cors(
