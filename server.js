@@ -1,55 +1,34 @@
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const ProductRoute = require('./router/ProductRoute');
 
-const PORT = process.env.port;
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 
+// CORS configuration
+app.use(cors({
+    origin: 'https://bill-order-frontend.vercel.app', // Allow requests from your frontend
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Allow credentials (like cookies, authorization headers)
+}));
 
-app.listen(PORT, (e) => {
-    if (e) {
-        console.log(`server not running`)
-    } else (
-        console.log(`server running on PORT ${PORT}`)
-    )
+app.use(express.json()); // Parse JSON bodies
+
+app.listen(PORT, () => {
+    console.log(`Server running on PORT ${PORT}`);
 });
 
 app.get('/', (req, res) => {
-    return res.send("welcome to my project")
-})
+    return res.send("Welcome to my project");
+});
 
-app.use('/api/products', ProductRoute)
+app.use('/api/products', ProductRoute);
 
-
-app.use(cors({
-    origin: 'https://bill-order-frontend.vercel.app',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, 
-}));
-
-app.use(express.json())
-
-
-// app.get('/get',async (req, res) => {
-//     try {
-//         const products = await Product.find();
-//         console.log("products",products)
-//       return res.send(products);
-//         // res.send("Hello")
-//     } catch (error) {
-//         res.status(500).json({ message: 'Server error' });
-//     }
-// })
-
-
-
-// app.use("/public",express.static(__dirname+'/uploads'));
-
-const MONGODB_URL = process.env.MONGODB_URL
+const MONGODB_URL = process.env.MONGODB_URL;
 
 mongoose.connect(MONGODB_URL)
-    .then(() => console.log(`MongoDB connneted in ${PORT}`))
-    .catch(() => console.log(`MongoDB notConnected`))
+    .then(() => console.log(`MongoDB connected on ${PORT}`))
+    .catch(() => console.log(`MongoDB not connected`));
