@@ -17,20 +17,22 @@ app.listen(PORT, (e) => {
     )
 });
 
-app.get('/demo',(req,res)=>{
- return  res.send("welcome to my project")
+app.get('/demo', (req, res) => {
+    return res.send("welcome to my project")
 })
 
-app.use('/api/products',ProductRoute)
+app.use('/api/products', ProductRoute)
 
 
-app.use(cors(
-    {
-        origin: ["https://bill-order-frontend.vercel.app"],
-        methods: ["POST", "get"],
-        credentials: true
-    }
-));
+// app.use(cors(
+//     {
+//         origin: ["https://bill-order-frontend.vercel.app"],
+//         methods: ["POST", "GET"],
+//         credentials: true
+//     }
+// ));
+
+app.use(cors({ origin: "*" }))
 app.use(express.json())
 
 
