@@ -27,7 +27,7 @@ app.use('/api/products',ProductRoute)
 app.use(cors(
     {
         origin: ["https://bill-order-frontend.vercel.app"],
-        methods: ["POST", "GET"],
+        methods: ["POST", "get"],
         credentials: true
     }
 ));
