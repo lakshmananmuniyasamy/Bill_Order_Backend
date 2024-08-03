@@ -24,15 +24,12 @@ app.get('/demo', (req, res) => {
 app.use('/api/products', ProductRoute)
 
 
-// app.use(cors(
-//     {
-//         origin: ["https://bill-order-frontend.vercel.app"],
-//         methods: ["POST", "GET"],
-//         credentials: true
-//     }
-// ));
+app.use(cors({
+    origin: 'https://bill-order-frontend.vercel.app',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, 
+}));
 
-app.use(cors())
 app.use(express.json())
 
 
