@@ -17,15 +17,16 @@ app.listen(PORT, (e) => {
     )
 });
 
-app.use('/demo',(req,res)=>{
+app.get('/demo',(req,res)=>{
  return  res.send("welcome to my project")
 })
 
-app.use(cors({ origin: "*",methods: ["POST", "GET"],credentials: true }));
+app.use(cors({ origin: "https://deploy-mern-",methods: ["POST", "GET"],credentials: true }));
 
 app.use(express.json());
 
-app.use('/api/products',ProductRoute);
+
+
 
 // app.use("/public",express.static(__dirname+'/uploads'));
 
