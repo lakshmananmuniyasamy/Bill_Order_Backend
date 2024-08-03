@@ -21,7 +21,7 @@ app.use('/demo',(req,res)=>{
  return  res.send("welcome to my project")
 })
 
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: "*",methods: ["POST", "GET"],credentials: true }));
 
 app.use(express.json());
 
