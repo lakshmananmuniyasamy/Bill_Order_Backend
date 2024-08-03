@@ -32,7 +32,7 @@ app.use('/api/products', ProductRoute)
 //     }
 // ));
 
-app.use(cors({ origin: "*" }))
+app.use(cors())
 app.use(express.json())
 
 
