@@ -23,7 +23,7 @@ app.get('/demo',(req,res)=>{
 })
 
 app.use('/test',(req,res)=>{
-      res.send("welcome to my project")
+    return  res.send("welcome to my test ")
 })
 
 // app.use(cors({ origin: "*",methods: ["POST", "GET"],credentials: true }));
