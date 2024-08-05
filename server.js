@@ -10,7 +10,7 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-    origin: '*', 
+    origin: 'https://bill-order-frontend.vercel.app', 
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 }));
